@@ -6,8 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class VentlyApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(VentlyApplication.class, args);
-	}
+	public static void main(String[] args) { SpringApplication.run(VentlyApplication.class, args); }
 
 }
