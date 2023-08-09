@@ -1,13 +1,12 @@
 package com.management.vently.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.sql.Timestamp;
 
-@Data
+@Entity
 @Getter
 @Setter
 public class Password {
