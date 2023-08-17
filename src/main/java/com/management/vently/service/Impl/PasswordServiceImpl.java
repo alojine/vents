@@ -26,18 +26,19 @@ public class PasswordServiceImpl implements PasswordService {
 
     @Override
     public void save(Password password) {
-        password.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
-        password.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
+//        password.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
+//        password.setCreatedAt(Timestamp.valueOf(LocalDateTime.now()));
 
         passwordRepository.save(password);
     }
 
+    @Override
     public void put(Password password) {
         Password updatedPassword = passwordRepository.getReferenceById(password.getId());
         updatedPassword.setApplicationName(password.getApplicationName());
         updatedPassword.setEmailAddress(password.getEmailAddress());
         updatedPassword.setPassword(password.getPassword());
-        updatedPassword.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
+//        updatedPassword.setUpdatedAt(Timestamp.valueOf(LocalDateTime.now()));
 
          passwordRepository.save(updatedPassword);
     }

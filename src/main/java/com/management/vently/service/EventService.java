@@ -8,4 +8,6 @@ public interface EventService {
     List<Event> getAll();
 
     Event save(Event event);
+
+    Event put(Event event);
 }

@@ -7,6 +7,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
@@ -36,9 +38,10 @@ public class Event {
     private EventType eventType;
 
     @Column(nullable = false)
-    private Timestamp createdAt;
-
-    @Column(nullable = false)
+    @UpdateTimestamp
     private Timestamp updatedAt;
 
+    @Column(nullable = false)
+    @CreationTimestamp
+    private Timestamp createdAt;
 }
