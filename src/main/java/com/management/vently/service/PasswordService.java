@@ -8,5 +8,7 @@ public interface PasswordService {
 
     List<Password> getAll();
 
-    Password save(Password password);
+    void save(Password password);
+
+    void put(Password password);
 }
