@@ -34,6 +34,7 @@ public class Event {
     private LocalDate date;
 
     @Column(name = "event_type")
+    @Enumerated(EnumType.STRING)
     private EventType eventType;
 
     @Column(nullable = false, name = "updated_at")
