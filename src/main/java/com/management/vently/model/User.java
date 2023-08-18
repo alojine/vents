@@ -1,40 +1,35 @@
 package com.management.vently.model;
 
-import com.management.vently.enums.EventType;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Timestamp;
-import java.time.LocalDate;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "event")
-public class Event {
+@Table(name = "vently_user")
+public class User {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    @Column(nullable = false, length = 100, name = "name")
-    private String name;
+    @Column(nullable = false, name = "first_name")
+    private String firstName;
 
-    @Column(name = "location")
-    private String location;
+    @Column(nullable = false, name = "last_name")
+    private String lastName;
 
-    @Column(name = "ticket")
-    private Byte ticket;
+    @Column(nullable = false, name = "email")
+    private String email;
 
-    @Column(name = "date")
-    private LocalDate date;
-
-    @Column(name = "event_type")
-    private EventType eventType;
+    @Column(nullable = false, name = "password")
+    private String password;
 
     @Column(nullable = false, name = "updated_at")
     @UpdateTimestamp
