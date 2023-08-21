@@ -14,14 +14,14 @@ public interface EventMapper {
     @Mapping(target = "location", source = "dto.location")
     @Mapping(target = "ticket", source = "dto.ticket")
     @Mapping(target = "date", source = "dto.date")
-    @Mapping(target = "eventType", source = "dto.eventType")
+    @Mapping(target = "type", source = "dto.type")
     Event eventDTOtoEvent(EventDTO dto);
 
     @Mapping(target = "name", source = "entity.name")
     @Mapping(target = "location", source = "entity.location")
     @Mapping(target = "ticket", source = "entity.ticket")
     @Mapping(target = "date", source = "entity.date")
-    @Mapping(target = "eventType", source = "entity.eventType")
+    @Mapping(target = "type", source = "entity.type")
     EventDTO eventToEventDTO(Event entity);
 
     List<EventDTO> eventListToEventDTOList(List<Event> events);

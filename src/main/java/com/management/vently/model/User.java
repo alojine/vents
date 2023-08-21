@@ -25,11 +25,11 @@ public class User implements UserDetails {
     @GeneratedValue
     private Long id;
 
-    @Column(nullable = false, name = "first_name")
-    private String firstName;
+    @Column(nullable = false, name = "firstname")
+    private String firstname;
 
-    @Column(nullable = false, name = "last_name")
-    private String lastName;
+    @Column(nullable = false, name = "lastname")
+    private String lastname;
 
     @Column(nullable = false, name = "email")
     private String email;

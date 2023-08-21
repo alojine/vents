@@ -9,6 +9,6 @@ public record EventDTO(
         String location,
         Byte ticket,
         LocalDate date,
-        EventType eventType
+        EventType type
 ) {
 }
