@@ -12,4 +12,6 @@ public interface PasswordService {
     void save(Password password, User user);
 
     void put(Password password);
+
+    List<Password> getAllByUser(User user);
 }

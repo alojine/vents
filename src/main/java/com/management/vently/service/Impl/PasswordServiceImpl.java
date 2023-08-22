@@ -1,5 +1,7 @@
 package com.management.vently.service.Impl;
 
+import com.management.vently.enums.VentlyError;
+import com.management.vently.exception.VentlyUserNotFoundException;
 import com.management.vently.model.Password;
 import com.management.vently.model.User;
 import com.management.vently.repository.PasswordRepository;
@@ -37,5 +39,11 @@ public class PasswordServiceImpl implements PasswordService {
         updatedPassword.setPassword(password.getPassword());
 
          passwordRepository.save(updatedPassword);
+    }
+
+    @Override
+    public List<Password> getAllByUser(User user) {
+        return passwordRepository.findAllByUser(user)
+                .orElseThrow(() -> new VentlyUserNotFoundException(VentlyError.NO_PASSWORD_FOUND + " " + VentlyError.INVALID_USER));
     }
 }
