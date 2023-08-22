@@ -1,6 +1,7 @@
 package com.management.vently.service.Impl;
 
 import com.management.vently.model.Password;
+import com.management.vently.model.User;
 import com.management.vently.repository.PasswordRepository;
 import com.management.vently.service.PasswordService;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,8 @@ public class PasswordServiceImpl implements PasswordService {
     }
 
     @Override
-    public void save(Password password) {
+    public void save(Password password, User user) {
+        password.setUser(user);
         passwordRepository.save(password);
     }
 

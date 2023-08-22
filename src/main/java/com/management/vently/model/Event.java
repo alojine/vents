@@ -37,6 +37,10 @@ public class Event {
     @Enumerated(EnumType.STRING)
     private EventType type;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
     @Column(nullable = false, name = "updated_at")
     @UpdateTimestamp
     private Timestamp updatedAt;

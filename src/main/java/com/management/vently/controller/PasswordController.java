@@ -4,6 +4,7 @@ import com.management.vently.mapper.PasswordMapper;
 import com.management.vently.mapper.entity.PasswordDTO;
 import com.management.vently.model.Password;
 import com.management.vently.service.PasswordService;
+import com.management.vently.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,11 +18,14 @@ public class PasswordController {
 
     private final PasswordService passwordService;
 
+    private final UserService userService;
+
     private final PasswordMapper passwordMapper;
 
     @Autowired
-    public PasswordController(PasswordService passwordService, PasswordMapper passwordMapper) {
+    public PasswordController(PasswordService passwordService, UserService userService, PasswordMapper passwordMapper) {
         this.passwordService = passwordService;
+        this.userService = userService;
         this.passwordMapper = passwordMapper;
     }
 
@@ -32,7 +36,7 @@ public class PasswordController {
 
     @PostMapping
     public ResponseEntity<HttpStatus> save(@RequestBody PasswordDTO passwordDTO) {
-        passwordService.save(passwordMapper.passwordDTOtoPassword(passwordDTO));
+        passwordService.save(passwordMapper.passwordDTOtoPassword(passwordDTO), userService.getByEmail(passwordDTO.user().getEmail()));
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 

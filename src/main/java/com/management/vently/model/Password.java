@@ -28,6 +28,10 @@ public class Password {
     @Column(nullable = false, name = "password")
     private String password;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
     @Column(nullable = false, name = "updated_at")
     @UpdateTimestamp
     private Timestamp updatedAt;
