@@ -1,6 +1,6 @@
 package com.management.vently.domain.DTO;
 
-public record AuthResponse(
+public record AuthResponseDTO(
         String token
 ) {
 }

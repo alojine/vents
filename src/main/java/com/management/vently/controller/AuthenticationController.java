@@ -22,12 +22,12 @@ public class AuthenticationController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest request) {
+    public ResponseEntity<AuthResponseDTO> register(@RequestBody RegisterRequestDTO request) {
         return new ResponseEntity<>(authenticationService.register(request),  HttpStatus.OK);
     }
 
     @PostMapping("/authenticate")
-    public ResponseEntity<AuthResponse> authenticate(@RequestBody AuthRequest request) {
+    public ResponseEntity<AuthResponseDTO> authenticate(@RequestBody AuthRequestDTO request) {
         return new ResponseEntity<>(authenticationService.authenticate(request),  HttpStatus.OK);
     }
 }
