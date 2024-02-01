@@ -1,7 +1,6 @@
 package com.management.vently.config;
 
 import com.management.vently.enums.VentlyError;
-import com.management.vently.exception.VentlyUserNotFoundException;
 import com.management.vently.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

@@ -33,13 +33,14 @@ public class PasswordController {
 
     @GetMapping
     public ResponseEntity<List<PasswordDTO>> getAllByUser(UserDTO userDTO) {
-        User user = userService.getByEmail(userDTO.email());
+        User user = userService.getByEmail(userDTO.email())
+                .orElseThrow(() -> new RuntimeException(""));
         return new ResponseEntity<>(passwordMapper.passwordListToPasswordDTOList(passwordService.getAllByUser(user)), HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<HttpStatus> save(@RequestBody PasswordDTO passwordDTO) {
-        passwordService.save(passwordMapper.passwordDTOtoPassword(passwordDTO), userService.getByEmail(passwordDTO.user().getEmail()));
+//        passwordService.save(passwordMapper.passwordDTOtoPassword(passwordDTO), userService.getByEmail(passwordDTO.user().getEmail()));
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 

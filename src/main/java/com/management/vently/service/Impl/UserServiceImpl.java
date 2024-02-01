@@ -1,11 +1,11 @@
 package com.management.vently.service.Impl;
 
-import com.management.vently.enums.VentlyError;
-import com.management.vently.exception.VentlyUserNotFoundException;
 import com.management.vently.domain.model.User;
 import com.management.vently.repository.UserRepository;
 import com.management.vently.service.UserService;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -23,8 +23,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getByEmail(String email) {
-        return userRepository.findByEmail(email)
-                .orElseThrow(() -> new VentlyUserNotFoundException(VentlyError.INVALID_EMAIL.getMessage()));
+    public Optional<User> getByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 }

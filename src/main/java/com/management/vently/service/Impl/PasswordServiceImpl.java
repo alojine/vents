@@ -1,7 +1,6 @@
 package com.management.vently.service.Impl;
 
 import com.management.vently.enums.VentlyError;
-import com.management.vently.exception.VentlyUserNotFoundException;
 import com.management.vently.domain.model.Password;
 import com.management.vently.domain.model.User;
 import com.management.vently.repository.PasswordRepository;

@@ -6,6 +6,7 @@ import com.management.vently.domain.model.User;
 import com.management.vently.repository.UserRepository;
 import com.management.vently.service.AuthenticationService;
 import com.management.vently.service.JwtService;
+import com.management.vently.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -16,7 +17,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AuthenticationServiceImpl implements AuthenticationService {
 
-    private final UserRepository userRepository;
+    private final UserService userService;
 
     private final PasswordEncoder passwordEncoder;
 
@@ -34,7 +35,11 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .role(Role.USER)
                 .build();
 
-        userRepository.save(user);
+        if (userService.getByEmail(request.email()).isEmpty()) {
+            throw new
+        }
+
+        userService.save(user);
         var jwtToken = jwtService.generateToken(user);
         return new AuthResponse(jwtToken);
     }
@@ -48,8 +53,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 )
         );
         // TODO user service instead of repository
-        var user = userRepository.findByEmail(request.email())
-                .orElseThrow();
+        var user = userService.getByEmail(request.email());
 
         var jwtToken = jwtService.generateToken(user);
         return new AuthResponse(jwtToken);
