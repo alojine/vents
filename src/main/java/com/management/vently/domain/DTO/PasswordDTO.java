@@ -1,6 +1,6 @@
-package com.management.vently.mapper.entity;
+package com.management.vently.domain.DTO;
 
-import com.management.vently.model.User;
+import com.management.vently.domain.model.User;
 
 public record PasswordDTO(
         String applicationName,

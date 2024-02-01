@@ -1,4 +1,4 @@
-package com.management.vently.model;
+package com.management.vently.domain.model;
 
 import com.management.vently.enums.Role;
 import jakarta.persistence.*;

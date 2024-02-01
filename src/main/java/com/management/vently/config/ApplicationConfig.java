@@ -1,7 +1,6 @@
 package com.management.vently.config;
 
-import com.management.vently.enums.VentlyError;
-import com.management.vently.exception.VentlyUserNotFoundException;
+import com.management.vently.exception.NotFoundException;
 import com.management.vently.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -22,8 +21,8 @@ public class ApplicationConfig {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        return username -> userRepository.findByEmail(username)
-                .orElseThrow(() -> new VentlyUserNotFoundException(VentlyError.INVALID_EMAIL.getMessage()));
+        return email -> userRepository.findByEmail(email)
+                .orElseThrow(() -> new NotFoundException(String.format("User with email: %s not exist", email)));
     }
 
     @Bean

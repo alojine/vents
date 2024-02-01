@@ -1,8 +1,6 @@
-package com.management.vently.controller.auth;
+package com.management.vently.controller;
 
-import com.management.vently.controller.auth.entity.AuthenticationRequest;
-import com.management.vently.controller.auth.entity.AuthenticationResponse;
-import com.management.vently.controller.auth.entity.RegisterRequest;
+import com.management.vently.domain.DTO.*;
 import com.management.vently.service.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,12 +22,12 @@ public class AuthenticationController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) {
+    public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest request) {
         return new ResponseEntity<>(authenticationService.register(request),  HttpStatus.OK);
     }
 
     @PostMapping("/authenticate")
-    public ResponseEntity<AuthenticationResponse> register(@RequestBody AuthenticationRequest request) {
+    public ResponseEntity<AuthResponse> authenticate(@RequestBody AuthRequest request) {
         return new ResponseEntity<>(authenticationService.authenticate(request),  HttpStatus.OK);
     }
 }

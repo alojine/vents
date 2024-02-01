@@ -1,10 +1,12 @@
 package com.management.vently.service;
 
-import com.management.vently.model.User;
+import com.management.vently.domain.model.User;
+
+import java.util.Optional;
 
 public interface UserService {
 
     void save(User user);
 
-    User getByEmail(String email);
+    Optional<User> getByEmail(String email);
 }

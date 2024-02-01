@@ -1,7 +1,7 @@
 package com.management.vently.mapper;
 
-import com.management.vently.mapper.entity.UserDTO;
-import com.management.vently.model.User;
+import com.management.vently.domain.DTO.UserDTO;
+import com.management.vently.domain.model.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

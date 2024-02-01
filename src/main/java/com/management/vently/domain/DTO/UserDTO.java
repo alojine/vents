@@ -1,4 +1,4 @@
-package com.management.vently.mapper.entity;
+package com.management.vently.domain.DTO;
 
 public record UserDTO(
         String firstname,
