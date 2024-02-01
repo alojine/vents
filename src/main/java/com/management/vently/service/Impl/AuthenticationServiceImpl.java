@@ -1,8 +1,6 @@
 package com.management.vently.service.Impl;
 
-import com.management.vently.domain.DTO.AuthenticationRequest;
-import com.management.vently.domain.DTO.AuthenticationResponse;
-import com.management.vently.domain.DTO.RegisterRequest;
+import com.management.vently.domain.DTO.*;
 import com.management.vently.enums.Role;
 import com.management.vently.domain.model.User;
 import com.management.vently.repository.UserRepository;
@@ -29,10 +27,10 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Override
     public AuthenticationResponse register(RegisterRequest request) {
         var user = User.builder()
-                .firstname(request.getFirstname())
-                .lastname(request.getLastname())
-                .email(request.getEmail())
-                .password(passwordEncoder.encode(request.getPassword()))
+                .firstname(request.firstname())
+                .lastname(request.lastname())
+                .email(request.email())
+                .password(passwordEncoder.encode(request.password()))
                 .role(Role.USER)
                 .build();
 
@@ -43,21 +41,37 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .build();
     }
 
+//    @Override
+//    public AuthenticationResponse authenticate(AuthenticationRequest request) {
+//        authenticationManager.authenticate(
+//                new UsernamePasswordAuthenticationToken(
+//                        request.getEmail(),
+//                        request.getPassword()
+//                )
+//        );
+//        // TODO user service instead of repository
+//        var user = userRepository.findByEmail(request.getEmail())
+//                .orElseThrow();
+//
+//        var jwtToken = jwtService.generateToken(user);
+//        return AuthenticationResponse.builder()
+//                .token(jwtToken)
+//                .build();
+//    }
+
     @Override
-    public AuthenticationResponse authenticate(AuthenticationRequest request) {
+    public AuthResponse authenticate(AuthRequest request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        request.getEmail(),
-                        request.getPassword()
+                        request.email(),
+                        request.password()
                 )
         );
         // TODO user service instead of repository
-        var user = userRepository.findByEmail(request.getEmail())
+        var user = userRepository.findByEmail(request.email())
                 .orElseThrow();
 
         var jwtToken = jwtService.generateToken(user);
-        return AuthenticationResponse.builder()
-                .token(jwtToken)
-                .build();
+        return new AuthResponse(jwtToken);
     }
 }
