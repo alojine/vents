@@ -1,10 +1,10 @@
 package com.management.vently.controller;
 
 import com.management.vently.mapper.PasswordMapper;
-import com.management.vently.mapper.entity.PasswordDTO;
-import com.management.vently.mapper.entity.UserDTO;
-import com.management.vently.model.Password;
-import com.management.vently.model.User;
+import com.management.vently.domain.DTO.PasswordDTO;
+import com.management.vently.domain.DTO.UserDTO;
+import com.management.vently.domain.model.Password;
+import com.management.vently.domain.model.User;
 import com.management.vently.service.PasswordService;
 import com.management.vently.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

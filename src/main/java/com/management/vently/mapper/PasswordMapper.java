@@ -1,7 +1,7 @@
 package com.management.vently.mapper;
 
-import com.management.vently.mapper.entity.PasswordDTO;
-import com.management.vently.model.Password;
+import com.management.vently.domain.DTO.PasswordDTO;
+import com.management.vently.domain.model.Password;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

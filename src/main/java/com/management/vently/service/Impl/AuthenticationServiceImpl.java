@@ -1,10 +1,10 @@
 package com.management.vently.service.Impl;
 
-import com.management.vently.controller.auth.entity.AuthenticationRequest;
-import com.management.vently.controller.auth.entity.AuthenticationResponse;
-import com.management.vently.controller.auth.entity.RegisterRequest;
+import com.management.vently.domain.DTO.AuthenticationRequest;
+import com.management.vently.domain.DTO.AuthenticationResponse;
+import com.management.vently.domain.DTO.RegisterRequest;
 import com.management.vently.enums.Role;
-import com.management.vently.model.User;
+import com.management.vently.domain.model.User;
 import com.management.vently.repository.UserRepository;
 import com.management.vently.service.AuthenticationService;
 import com.management.vently.service.JwtService;

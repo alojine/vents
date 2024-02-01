@@ -1,5 +1,6 @@
-package com.management.vently.model;
+package com.management.vently.domain.model;
 
+import com.management.vently.domain.model.User;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;

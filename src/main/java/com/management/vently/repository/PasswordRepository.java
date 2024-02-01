@@ -1,7 +1,7 @@
 package com.management.vently.repository;
 
-import com.management.vently.model.Password;
-import com.management.vently.model.User;
+import com.management.vently.domain.model.Password;
+import com.management.vently.domain.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

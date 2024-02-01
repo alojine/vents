@@ -1,4 +1,4 @@
-package com.management.vently.controller.auth.entity;
+package com.management.vently.domain.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

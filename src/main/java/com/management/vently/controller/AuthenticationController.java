@@ -1,8 +1,8 @@
-package com.management.vently.controller.auth;
+package com.management.vently.controller;
 
-import com.management.vently.controller.auth.entity.AuthenticationRequest;
-import com.management.vently.controller.auth.entity.AuthenticationResponse;
-import com.management.vently.controller.auth.entity.RegisterRequest;
+import com.management.vently.domain.DTO.AuthenticationRequest;
+import com.management.vently.domain.DTO.AuthenticationResponse;
+import com.management.vently.domain.DTO.RegisterRequest;
 import com.management.vently.service.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

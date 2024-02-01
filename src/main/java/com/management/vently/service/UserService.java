@@ -1,6 +1,6 @@
 package com.management.vently.service;
 
-import com.management.vently.model.User;
+import com.management.vently.domain.model.User;
 
 public interface UserService {
 

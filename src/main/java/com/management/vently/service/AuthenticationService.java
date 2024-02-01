@@ -1,8 +1,8 @@
 package com.management.vently.service;
 
-import com.management.vently.controller.auth.entity.AuthenticationRequest;
-import com.management.vently.controller.auth.entity.AuthenticationResponse;
-import com.management.vently.controller.auth.entity.RegisterRequest;
+import com.management.vently.domain.DTO.AuthenticationRequest;
+import com.management.vently.domain.DTO.AuthenticationResponse;
+import com.management.vently.domain.DTO.RegisterRequest;
 
 public interface AuthenticationService {
 

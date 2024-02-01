@@ -2,7 +2,7 @@ package com.management.vently.service.Impl;
 
 import com.management.vently.enums.VentlyError;
 import com.management.vently.exception.VentlyUserNotFoundException;
-import com.management.vently.model.User;
+import com.management.vently.domain.model.User;
 import com.management.vently.repository.UserRepository;
 import com.management.vently.service.UserService;
 import org.springframework.stereotype.Service;
