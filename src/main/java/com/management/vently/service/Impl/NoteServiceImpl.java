@@ -42,7 +42,7 @@ public class NoteServiceImpl implements NoteService {
         User user = userService.getById(userId);
 
         List<Note> notes = noteRepository.findAll();
-        boolean isDuplicate = notes.stream().allMatch(existingNote ->
+        boolean isDuplicate = notes.stream().anyMatch(existingNote ->
                 existingNote.getUser().equals(user) && existingNote.getTitle().equals(note.getTitle()));
         if (isDuplicate) {
             throw new RequestValidationException("User cannot have two notes with the same title");

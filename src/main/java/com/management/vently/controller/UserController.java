@@ -1,7 +1,6 @@
 package com.management.vently.controller;
 
 import com.management.vently.domain.DTO.NoteDTO;
-import com.management.vently.domain.model.Note;
 import com.management.vently.mapper.NoteMapper;
 import com.management.vently.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;

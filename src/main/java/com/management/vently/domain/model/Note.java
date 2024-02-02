@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "note")
+@Table(name = "notes")
 public class Note {
 
     @GeneratedValue
@@ -23,14 +23,14 @@ public class Note {
     private User user;
 
     @Column(nullable = false, name = "title")
-    private String Title;
+    private String title;
 
     @Column(nullable = false, name = "content")
-    private String Content;
+    private String content;
 
     @Column(nullable = false, name = "created_at")
-    private Timestamp CreatedAt;
+    private Timestamp createdAt;
 
     @Column(nullable = false, name = "updated_at")
-    private Timestamp UpdatedAt;
+    private Timestamp updatedAt;
 }

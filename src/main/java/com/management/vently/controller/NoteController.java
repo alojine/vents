@@ -1,8 +1,6 @@
 package com.management.vently.controller;
 
 import com.management.vently.domain.DTO.NoteDTO;
-import com.management.vently.domain.DTO.PasswordDTO;
-import com.management.vently.domain.model.Note;
 import com.management.vently.mapper.NoteMapper;
 import com.management.vently.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/v1/notes")
+@RequestMapping("/api/v1/notes")
 public class NoteController {
 
     private final NoteService noteService;
