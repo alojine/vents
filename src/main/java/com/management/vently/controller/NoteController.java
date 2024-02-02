@@ -1,6 +1,9 @@
 package com.management.vently.controller;
 
+import com.management.vently.domain.DTO.NoteDTO;
 import com.management.vently.domain.DTO.PasswordDTO;
+import com.management.vently.domain.model.Note;
+import com.management.vently.mapper.NoteMapper;
 import com.management.vently.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,28 +16,28 @@ public class NoteController {
 
     private final NoteService noteService;
 
-    @Autowired
-    public NoteController(NoteService noteService) {
-        this.noteService = noteService;
-    }
+    private final NoteMapper noteMapper;
 
-    @GetMapping
-    public ResponseEntity<HttpStatus> getAllUserNotes(){
-        return new ResponseEntity<>(HttpStatus.OK);
+    @Autowired
+    public NoteController(NoteService noteService, NoteMapper noteMapper) {
+        this.noteService = noteService;
+        this.noteMapper = noteMapper;
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<HttpStatus> getNote(){
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<NoteDTO> getNoteById(@PathVariable Long id){
+        return new ResponseEntity<>(noteMapper.noteToNoteDTO(noteService.getById(id)), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<HttpStatus> createNote (){
+    public ResponseEntity<HttpStatus> createNote(@RequestBody NoteDTO noteDTO){
+        noteService.add(noteMapper.noteDTOToNote(noteDTO), noteDTO.userId());
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PutMapping
-    public ResponseEntity<HttpStatus> updateNote(){
+    public ResponseEntity<HttpStatus> updateNote(@RequestBody NoteDTO noteDTO){
+        noteService.update(noteMapper.noteDTOToNote(noteDTO), noteDTO.userId());
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
