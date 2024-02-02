@@ -4,7 +4,7 @@ import com.management.vently.domain.DTO.*;
 
 public interface AuthenticationService {
 
-    AuthResponse register(RegisterRequest request);
+    AuthResponseDTO register(RegisterRequestDTO request);
 
-    AuthResponse authenticate(AuthRequest request);
+    AuthResponseDTO authenticate(AuthRequestDTO request);
 }

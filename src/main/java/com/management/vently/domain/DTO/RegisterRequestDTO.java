@@ -1,6 +1,6 @@
 package com.management.vently.domain.DTO;
 
-public record RegisterRequest(
+public record RegisterRequestDTO(
         String firstname,
         String lastname,
         String email,

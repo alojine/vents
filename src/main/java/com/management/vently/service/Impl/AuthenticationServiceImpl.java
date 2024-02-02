@@ -28,7 +28,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     @Override
-    public AuthResponse register(RegisterRequest request) {
+    public AuthResponseDTO register(RegisterRequestDTO request) {
         var user = User.builder()
                 .firstname(request.firstname())
                 .lastname(request.lastname())
@@ -44,11 +44,11 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
         userService.save(user);
         var jwtToken = jwtService.generateToken(user);
-        return new AuthResponse(jwtToken);
+        return new AuthResponseDTO(jwtToken);
     }
 
     @Override
-    public AuthResponse authenticate(AuthRequest request) {
+    public AuthResponseDTO authenticate(AuthRequestDTO request) {
         User user = userService.getByEmail(request.email())
                 .orElseThrow(() -> new NotFoundException(String.format("User with email: %s does not exist", request.email())));
 
@@ -64,6 +64,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         }
 
         var jwtToken = jwtService.generateToken(user);
-        return new AuthResponse(jwtToken);
+        return new AuthResponseDTO(jwtToken);
     }
 }

@@ -1,6 +1,5 @@
 package com.management.vently.domain.model;
 
-import com.management.vently.domain.model.User;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -13,7 +12,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "password")
+@Table(name = "passwords")
 public class Password {
 
     @Id
