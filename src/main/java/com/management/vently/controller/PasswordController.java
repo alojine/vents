@@ -28,16 +28,4 @@ public class PasswordController {
         this.userService = userService;
         this.passwordMapper = passwordMapper;
     }
-
-    @PostMapping
-    public ResponseEntity<HttpStatus> save(@RequestBody PasswordDTO passwordDTO) {
-//        passwordService.save(passwordMapper.passwordDTOtoPassword(passwordDTO), userService.getByEmail(passwordDTO.user().getEmail()));
-        return new ResponseEntity<>(HttpStatus.CREATED);
-    }
-
-    @PutMapping
-    public ResponseEntity<HttpStatus> put(@RequestBody Password password) {
-        passwordService.put(password);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
 }

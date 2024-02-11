@@ -1,5 +1,6 @@
 package com.management.vently.service;
 
+import com.management.vently.domain.DTO.PasswordUpdateDto;
 import com.management.vently.domain.model.Password;
 import com.management.vently.domain.model.User;
 
@@ -13,7 +14,7 @@ public interface PasswordService {
 
     Password add(Password password, Long userId);
 
-    Password update(Password password, Long userId);
+    Password update(PasswordUpdateDto passwordDto, Long userId);
 
     void delete(Long id);
 }
