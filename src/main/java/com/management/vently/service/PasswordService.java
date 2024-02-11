@@ -13,5 +13,5 @@ public interface PasswordService {
 
     void put(Password password);
 
-    List<Password> getAllByUser(User user);
+    List<Password> getPasswordsByUserId(Long id);
 }

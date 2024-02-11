@@ -10,5 +10,5 @@ import java.util.Optional;
 
 @Repository
 public interface PasswordRepository extends JpaRepository<Password, Long> {
-    Optional<List<Password>> findAllByUser(User user);
+    Optional<List<Password>> getPasswordsByUser(User user);
 }

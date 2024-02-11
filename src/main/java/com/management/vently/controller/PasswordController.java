@@ -2,9 +2,7 @@ package com.management.vently.controller;
 
 import com.management.vently.mapper.PasswordMapper;
 import com.management.vently.domain.DTO.PasswordDTO;
-import com.management.vently.domain.DTO.UserDTO;
 import com.management.vently.domain.model.Password;
-import com.management.vently.domain.model.User;
 import com.management.vently.service.PasswordService;
 import com.management.vently.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,13 +27,6 @@ public class PasswordController {
         this.passwordService = passwordService;
         this.userService = userService;
         this.passwordMapper = passwordMapper;
-    }
-
-    @GetMapping
-    public ResponseEntity<List<PasswordDTO>> getAllByUser(UserDTO userDTO) {
-        User user = userService.getByEmail(userDTO.email())
-                .orElseThrow(() -> new RuntimeException(""));
-        return new ResponseEntity<>(passwordMapper.passwordListToPasswordDTOList(passwordService.getAllByUser(user)), HttpStatus.OK);
     }
 
     @PostMapping

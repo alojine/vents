@@ -33,7 +33,7 @@ public class NoteServiceImpl implements NoteService {
 
     @Override
     public List<Note> getNotesByUserId(Long userId) {
-        return noteRepository.getNoteByUser(userService.getById(userId))
+        return noteRepository.getNotesByUser(userService.getById(userId))
                 .orElseThrow(() -> new NotFoundException(String.format("User with Id: %s has no notes", userId)));
     }
 
