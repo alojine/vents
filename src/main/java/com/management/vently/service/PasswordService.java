@@ -2,7 +2,6 @@ package com.management.vently.service;
 
 import com.management.vently.domain.DTO.PasswordUpdateDto;
 import com.management.vently.domain.model.Password;
-import com.management.vently.domain.model.User;
 
 import java.util.List;
 
