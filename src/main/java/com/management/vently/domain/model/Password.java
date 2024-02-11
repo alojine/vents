@@ -19,6 +19,10 @@ public class Password {
     @GeneratedValue
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
     @Column(nullable = false, length = 100, name = "application_name")
     private String applicationName;
 
@@ -27,10 +31,6 @@ public class Password {
 
     @Column(nullable = false, name = "password")
     private String password;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
 
     @Column(nullable = false, name = "updated_at")
     @UpdateTimestamp

@@ -15,5 +15,5 @@ public interface NoteRepository extends JpaRepository<Note, Long> {
 
     Optional<Note> getNoteByTitleAndUser(String title, User user);
 
-    Optional<List<Note>> getNoteByUser(User user);
+    Optional<List<Note>> getNotesByUser(User user);
 }

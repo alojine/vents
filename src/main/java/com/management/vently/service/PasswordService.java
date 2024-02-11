@@ -1,17 +1,19 @@
 package com.management.vently.service;
 
+import com.management.vently.domain.DTO.PasswordUpdateDto;
 import com.management.vently.domain.model.Password;
-import com.management.vently.domain.model.User;
 
 import java.util.List;
 
 public interface PasswordService {
 
-    List<Password> getAll();
+    Password getById(Long id);
 
-    void save(Password password, User user);
+    List<Password> getPasswordsByUserId(Long id);
 
-    void put(Password password);
+    Password add(Password password, Long userId);
 
-    List<Password> getAllByUser(User user);
+    Password update(PasswordUpdateDto passwordDto, Long userId);
+
+    void delete(Long id);
 }
