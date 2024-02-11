@@ -18,7 +18,6 @@ public interface PasswordMapper {
     @Mapping(target = "applicationName", source = "entity.applicationName")
     @Mapping(target = "emailAddress", source = "entity.emailAddress")
     @Mapping(target = "password", source = "entity.password")
-    @Mapping(target = "userId", source = "entity.user")
     PasswordDTO passwordToPasswordDTO(Password entity);
 
     List<PasswordDTO> passwordListToPasswordDTOList(List<Password> passwords);
