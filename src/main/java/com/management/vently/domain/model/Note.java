@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Timestamp;
 
@@ -29,8 +31,10 @@ public class Note {
     private String content;
 
     @Column(nullable = false, name = "created_at")
+    @CreationTimestamp
     private Timestamp createdAt;
 
     @Column(nullable = false, name = "updated_at")
+    @UpdateTimestamp
     private Timestamp updatedAt;
 }

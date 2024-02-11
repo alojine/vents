@@ -39,8 +39,9 @@ public class NoteController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping
-    public ResponseEntity<HttpStatus> deleteNote(){
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<HttpStatus> deleteNote(@PathVariable Long id) {
+        noteService.delete(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
