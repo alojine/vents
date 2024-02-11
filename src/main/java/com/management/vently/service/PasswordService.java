@@ -7,11 +7,13 @@ import java.util.List;
 
 public interface PasswordService {
 
-    List<Password> getAll();
-
-    void save(Password password, User user);
-
-    void put(Password password);
+    Password getById(Long id);
 
     List<Password> getPasswordsByUserId(Long id);
+
+    Password add(Password password, Long userId);
+
+    Password update(Password password, Long userId);
+
+    void delete(Long id);
 }

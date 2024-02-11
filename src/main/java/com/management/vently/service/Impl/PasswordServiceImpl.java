@@ -3,6 +3,7 @@ package com.management.vently.service.Impl;
 import com.management.vently.domain.model.Password;
 import com.management.vently.domain.model.User;
 import com.management.vently.exception.NotFoundException;
+import com.management.vently.exception.RequestValidationException;
 import com.management.vently.repository.PasswordRepository;
 import com.management.vently.service.PasswordService;
 import com.management.vently.service.UserService;
@@ -22,26 +23,9 @@ public class PasswordServiceImpl implements PasswordService {
         this.userService = userService;
     }
 
-
     @Override
-    public List<Password> getAll() {
-        return passwordRepository.findAll();
-    }
-
-    @Override
-    public void save(Password password, User user) {
-        password.setUser(user);
-        passwordRepository.save(password);
-    }
-
-    @Override
-    public void put(Password password) {
-        Password updatedPassword = passwordRepository.getReferenceById(password.getId());
-        updatedPassword.setApplicationName(password.getApplicationName());
-        updatedPassword.setEmailAddress(password.getEmailAddress());
-        updatedPassword.setPassword(password.getPassword());
-
-         passwordRepository.save(updatedPassword);
+    public Password getById(Long id) {
+        return null;
     }
 
     @Override
@@ -49,4 +33,22 @@ public class PasswordServiceImpl implements PasswordService {
         return passwordRepository.getPasswordsByUser(userService.getById(id))
                 .orElseThrow(() -> new NotFoundException(String.format("User with id: %s does not exist", id)));
     }
+
+    @Override
+    public Password add(Password password, Long userId) {
+        password.setUser(userService.getById(userId));
+        return passwordRepository.save(password);
+    }
+
+    @Override
+    public Password update(Password password, Long userId) {
+        return null;
+    }
+
+    @Override
+    public void delete(Long id) {
+        Password password = getById(id);
+        passwordRepository.delete(password);
+    }
+
 }

@@ -1,8 +1,7 @@
 package com.management.vently.domain.DTO;
 
-import com.management.vently.domain.model.User;
-
-public record PasswordDTO(
+public record PasswordUpdateDto(
+        Long passwordId,
         Long userId,
         String applicationName,
         String emailAddress,
